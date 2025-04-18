@@ -9,19 +9,240 @@ option go_package = "kratos-realworld/api/realworld/v1;v1";
 // The greeting service definition.
 service Realworld {
   // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply) {
+  rpc Login (LoginRequest) returns (LoginReply) {
     option (google.api.http) = {
-      get: "/helloworld/{name}"
+      post: "/api/users/login"
+      body: "*"
+    };
+  }
+
+  rpc Register (RegisterRequest) returns (RegisterReply) {
+    option (google.api.http) = {
+      post: "/api/users"
+      body: "*"
+    };
+  }
+
+  rpc GetCurrentUser (User) returns (UserReply) {
+    option (google.api.http) = {
+      get: "/api/user"
+    };
+  }
+
+  rpc UpdateUser (UserRegister) returns (UserReply) {
+    option (google.api.http) = {
+      put: "/api/user/{username}"
+      body: "*"
+    };
+  }
+
+  rpc GetProfile (ProfileRequest) returns (ProfileReply) {
+    option (google.api.http) = {
+      get: "/api/profiles/{username}"
+    };
+  }
+
+  rpc FollowUser (ProfileRequest) returns (ProfileReply) {
+    option (google.api.http) = {
+      post: "/api/profiles/follow"
+      body: "*"
+    };
+  }
+
+  rpc UnfollowUser (ProfileRequest) returns (ProfileReply) {
+    option (google.api.http) = {
+      delete: "/api/profiles/{username}/follow"
+    };
+  }
+
+  rpc GetTags (TagRequest) returns (TagReply) {
+    option (google.api.http) = {
+      get: "/api/tags/{id}"
+    };
+  }
+
+  rpc GetTagsList (TagRequest) returns (TagListReply) {
+    option (google.api.http) = {
+      get: "/api/tags"
+    };
+  }
+
+  rpc CreateArticle (Article) returns (ArticleReply) {
+    option (google.api.http) = {
+      post: "/api/articles"
+      body: "*"
+    };
+  }
+
+  rpc GetArticle (ArticleRequest) returns (ArticleReply) {
+    option (google.api.http) = {
+      get: "/api/articles/{slug}"
+    };
+  }  
+
+   rpc GetArticles (ArticleRequest) returns (ArticleListReply) {
+    option (google.api.http) = {
+      get: "/api/articles"
+    };
+  }
+
+  rpc UpdateArticle (Article) returns (ArticleReply) {
+    option (google.api.http) = {
+      put: "/api/articles/{slug}"
+      body: "*"
+    };
+  }
+
+  rpc DeleteArticle (ArticleRequest) returns (ArticleReply) {
+    option (google.api.http) = {
+      delete: "/api/articles/{slug}"
+    };
+  }
+
+  rpc AddComment (Comment) returns (CommentReply) {
+    option (google.api.http) = {
+      post: "/api/{article_id}/comments"
+      body: "*"
+    };
+  }
+
+  rpc GetComments (CommentListRequest) returns (CommentListReply) {
+    option (google.api.http) = {
+      get: "/api/{article_id}/comments"
+    };
+  }
+
+  rpc DeleteComment (CommentRequest) returns (CommentReply) {
+    option (google.api.http) = {
+      delete: "/api/comments/{id}"
     };
   }
 }
-
+message User {
+  string email = 1;
+  string password = 2;
+}
 // The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
+message LoginRequest {
+  User user = 1;
 }
 
 // The response message containing the greetings
-message HelloReply {
-  string message = 1;
+message LoginReply {
+  string token = 1;
+}
+
+message UserRegister {
+  string email = 1;
+  string password = 2;
+  string username = 3;
+}
+
+// The request message containing the user's name.
+message RegisterRequest {
+  UserRegister user = 1;
+}
+
+message RegisterReply {
+  message User {
+    string token = 1;
+  }
+  User user = 1;
+}
+
+message UserReply {
+  message Profile {
+    string email = 1;
+    string username = 2;
+    string token = 3;
+    string bio = 4;
+    string image = 5;
+  }
+  Profile user = 1;
+}
+
+message ProfileReply {
+  message Profile  {
+    string username = 1;
+    string bio = 2;
+    string image = 3;
+    bool following = 4;
+  }
+  Profile profile = 1;
+}
+
+message ProfileRequest {
+  string username = 1;
+}
+
+message Author {
+  string username = 1;
+  string bio = 2;
+  string image = 3;
+  bool following = 4;
+}
+
+message Tag {
+  int32 id = 1;
+  string name = 2;
+}
+
+message TagListReply {
+  repeated Tag tags = 1;
+  int32 total = 2;
+}
+
+message TagRequest {
+  int32 id = 1;
+}
+
+message TagReply {
+  Tag tag = 1;
+}
+
+message Article {
+  int32 id = 1;
+  string slug = 2;
+  string title = 3;
+  string description = 4;
+  string body = 5;
+  repeated Tag tag = 6;
+  string created_at = 7;
+  string updated_at = 8;
+  bool favorited = 9;
+  uint32 favorites_count = 10;
+  Author author = 11;
+}
+message ArticleRequest {
+  string slug = 1;
+}
+
+message ArticleReply {
+  Article article = 1;
+}
+
+message ArticleListReply {
+  repeated Article articles = 1;
+  int32 total = 2;
+}
+message Comment {
+  uint32 id = 1;
+  string created_at = 2;
+  string updated_at = 3;
+  string body = 4;
+  int32 article_id = 5;
+  Author author = 6;
+}
+message CommentRequest {
+  uint32 id = 1;
+}
+message CommentReply {
+  Comment comment = 1;
+}
+message CommentListRequest {
+  int32 article_id = 1;
+}
+message CommentListReply {
+  repeated Comment comments = 1;
+  int32 total = 2;
 }

@@ -22,28 +22,28 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// The request message containing the user's name.
-type HelloRequest struct {
+type User struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *HelloRequest) Reset() {
-	*x = HelloRequest{}
+func (x *User) Reset() {
+	*x = User{}
 	mi := &file_realworld_v1_realworld_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *HelloRequest) String() string {
+func (x *User) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HelloRequest) ProtoMessage() {}
+func (*User) ProtoMessage() {}
 
-func (x *HelloRequest) ProtoReflect() protoreflect.Message {
+func (x *User) ProtoReflect() protoreflect.Message {
 	mi := &file_realworld_v1_realworld_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -55,41 +55,539 @@ func (x *HelloRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HelloRequest.ProtoReflect.Descriptor instead.
-func (*HelloRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use User.ProtoReflect.Descriptor instead.
+func (*User) Descriptor() ([]byte, []int) {
 	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *HelloRequest) GetName() string {
+func (x *User) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *User) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+// The request message containing the user's name.
+type LoginRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *User                  `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoginRequest) Reset() {
+	*x = LoginRequest{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoginRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoginRequest) ProtoMessage() {}
+
+func (x *LoginRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoginRequest.ProtoReflect.Descriptor instead.
+func (*LoginRequest) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *LoginRequest) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+// The response message containing the greetings
+type LoginReply struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoginReply) Reset() {
+	*x = LoginReply{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoginReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoginReply) ProtoMessage() {}
+
+func (x *LoginReply) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoginReply.ProtoReflect.Descriptor instead.
+func (*LoginReply) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *LoginReply) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
+}
+
+type UserRegister struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	Username      string                 `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserRegister) Reset() {
+	*x = UserRegister{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserRegister) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserRegister) ProtoMessage() {}
+
+func (x *UserRegister) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserRegister.ProtoReflect.Descriptor instead.
+func (*UserRegister) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *UserRegister) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *UserRegister) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+func (x *UserRegister) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+// The request message containing the user's name.
+type RegisterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *UserRegister          `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterRequest) Reset() {
+	*x = RegisterRequest{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterRequest) ProtoMessage() {}
+
+func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterRequest.ProtoReflect.Descriptor instead.
+func (*RegisterRequest) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *RegisterRequest) GetUser() *UserRegister {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type RegisterReply struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *RegisterReply_User    `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterReply) Reset() {
+	*x = RegisterReply{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterReply) ProtoMessage() {}
+
+func (x *RegisterReply) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterReply.ProtoReflect.Descriptor instead.
+func (*RegisterReply) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *RegisterReply) GetUser() *RegisterReply_User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type UserReply struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *UserReply_Profile     `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserReply) Reset() {
+	*x = UserReply{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserReply) ProtoMessage() {}
+
+func (x *UserReply) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserReply.ProtoReflect.Descriptor instead.
+func (*UserReply) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *UserReply) GetUser() *UserReply_Profile {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type ProfileReply struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Profile       *ProfileReply_Profile  `protobuf:"bytes,1,opt,name=profile,proto3" json:"profile,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProfileReply) Reset() {
+	*x = ProfileReply{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProfileReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProfileReply) ProtoMessage() {}
+
+func (x *ProfileReply) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProfileReply.ProtoReflect.Descriptor instead.
+func (*ProfileReply) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *ProfileReply) GetProfile() *ProfileReply_Profile {
+	if x != nil {
+		return x.Profile
+	}
+	return nil
+}
+
+type ProfileRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Username      string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProfileRequest) Reset() {
+	*x = ProfileRequest{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProfileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProfileRequest) ProtoMessage() {}
+
+func (x *ProfileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProfileRequest.ProtoReflect.Descriptor instead.
+func (*ProfileRequest) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *ProfileRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+type Author struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Username      string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
+	Bio           string                 `protobuf:"bytes,2,opt,name=bio,proto3" json:"bio,omitempty"`
+	Image         string                 `protobuf:"bytes,3,opt,name=image,proto3" json:"image,omitempty"`
+	Following     bool                   `protobuf:"varint,4,opt,name=following,proto3" json:"following,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Author) Reset() {
+	*x = Author{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Author) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Author) ProtoMessage() {}
+
+func (x *Author) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Author.ProtoReflect.Descriptor instead.
+func (*Author) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *Author) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *Author) GetBio() string {
+	if x != nil {
+		return x.Bio
+	}
+	return ""
+}
+
+func (x *Author) GetImage() string {
+	if x != nil {
+		return x.Image
+	}
+	return ""
+}
+
+func (x *Author) GetFollowing() bool {
+	if x != nil {
+		return x.Following
+	}
+	return false
+}
+
+type Tag struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Tag) Reset() {
+	*x = Tag{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Tag) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Tag) ProtoMessage() {}
+
+func (x *Tag) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Tag.ProtoReflect.Descriptor instead.
+func (*Tag) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *Tag) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Tag) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-// The response message containing the greetings
-type HelloReply struct {
+type TagListReply struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	Tags          []*Tag                 `protobuf:"bytes,1,rep,name=tags,proto3" json:"tags,omitempty"`
+	Total         int32                  `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *HelloReply) Reset() {
-	*x = HelloReply{}
-	mi := &file_realworld_v1_realworld_proto_msgTypes[1]
+func (x *TagListReply) Reset() {
+	*x = TagListReply{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *HelloReply) String() string {
+func (x *TagListReply) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HelloReply) ProtoMessage() {}
+func (*TagListReply) ProtoMessage() {}
 
-func (x *HelloReply) ProtoReflect() protoreflect.Message {
-	mi := &file_realworld_v1_realworld_proto_msgTypes[1]
+func (x *TagListReply) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -100,30 +598,955 @@ func (x *HelloReply) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HelloReply.ProtoReflect.Descriptor instead.
-func (*HelloReply) Descriptor() ([]byte, []int) {
-	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{1}
+// Deprecated: Use TagListReply.ProtoReflect.Descriptor instead.
+func (*TagListReply) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{11}
 }
 
-func (x *HelloReply) GetMessage() string {
+func (x *TagListReply) GetTags() []*Tag {
 	if x != nil {
-		return x.Message
+		return x.Tags
+	}
+	return nil
+}
+
+func (x *TagListReply) GetTotal() int32 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
+type TagRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TagRequest) Reset() {
+	*x = TagRequest{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TagRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TagRequest) ProtoMessage() {}
+
+func (x *TagRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TagRequest.ProtoReflect.Descriptor instead.
+func (*TagRequest) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *TagRequest) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type TagReply struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Tag           *Tag                   `protobuf:"bytes,1,opt,name=tag,proto3" json:"tag,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TagReply) Reset() {
+	*x = TagReply{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TagReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TagReply) ProtoMessage() {}
+
+func (x *TagReply) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TagReply.ProtoReflect.Descriptor instead.
+func (*TagReply) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *TagReply) GetTag() *Tag {
+	if x != nil {
+		return x.Tag
+	}
+	return nil
+}
+
+type Article struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Id             int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Slug           string                 `protobuf:"bytes,2,opt,name=slug,proto3" json:"slug,omitempty"`
+	Title          string                 `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
+	Description    string                 `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	Body           string                 `protobuf:"bytes,5,opt,name=body,proto3" json:"body,omitempty"`
+	Tag            []*Tag                 `protobuf:"bytes,6,rep,name=tag,proto3" json:"tag,omitempty"`
+	CreatedAt      string                 `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt      string                 `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	Favorited      bool                   `protobuf:"varint,9,opt,name=favorited,proto3" json:"favorited,omitempty"`
+	FavoritesCount uint32                 `protobuf:"varint,10,opt,name=favorites_count,json=favoritesCount,proto3" json:"favorites_count,omitempty"`
+	Author         *Author                `protobuf:"bytes,11,opt,name=author,proto3" json:"author,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *Article) Reset() {
+	*x = Article{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Article) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Article) ProtoMessage() {}
+
+func (x *Article) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Article.ProtoReflect.Descriptor instead.
+func (*Article) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *Article) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Article) GetSlug() string {
+	if x != nil {
+		return x.Slug
 	}
 	return ""
+}
+
+func (x *Article) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *Article) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *Article) GetBody() string {
+	if x != nil {
+		return x.Body
+	}
+	return ""
+}
+
+func (x *Article) GetTag() []*Tag {
+	if x != nil {
+		return x.Tag
+	}
+	return nil
+}
+
+func (x *Article) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *Article) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
+func (x *Article) GetFavorited() bool {
+	if x != nil {
+		return x.Favorited
+	}
+	return false
+}
+
+func (x *Article) GetFavoritesCount() uint32 {
+	if x != nil {
+		return x.FavoritesCount
+	}
+	return 0
+}
+
+func (x *Article) GetAuthor() *Author {
+	if x != nil {
+		return x.Author
+	}
+	return nil
+}
+
+type ArticleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Slug          string                 `protobuf:"bytes,1,opt,name=slug,proto3" json:"slug,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArticleRequest) Reset() {
+	*x = ArticleRequest{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArticleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArticleRequest) ProtoMessage() {}
+
+func (x *ArticleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArticleRequest.ProtoReflect.Descriptor instead.
+func (*ArticleRequest) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *ArticleRequest) GetSlug() string {
+	if x != nil {
+		return x.Slug
+	}
+	return ""
+}
+
+type ArticleReply struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Article       *Article               `protobuf:"bytes,1,opt,name=article,proto3" json:"article,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArticleReply) Reset() {
+	*x = ArticleReply{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArticleReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArticleReply) ProtoMessage() {}
+
+func (x *ArticleReply) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArticleReply.ProtoReflect.Descriptor instead.
+func (*ArticleReply) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *ArticleReply) GetArticle() *Article {
+	if x != nil {
+		return x.Article
+	}
+	return nil
+}
+
+type ArticleListReply struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Articles      []*Article             `protobuf:"bytes,1,rep,name=articles,proto3" json:"articles,omitempty"`
+	Total         int32                  `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArticleListReply) Reset() {
+	*x = ArticleListReply{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArticleListReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArticleListReply) ProtoMessage() {}
+
+func (x *ArticleListReply) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArticleListReply.ProtoReflect.Descriptor instead.
+func (*ArticleListReply) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *ArticleListReply) GetArticles() []*Article {
+	if x != nil {
+		return x.Articles
+	}
+	return nil
+}
+
+func (x *ArticleListReply) GetTotal() int32 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
+type Comment struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,3,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	Body          string                 `protobuf:"bytes,4,opt,name=body,proto3" json:"body,omitempty"`
+	ArticleId     int32                  `protobuf:"varint,5,opt,name=article_id,json=articleId,proto3" json:"article_id,omitempty"`
+	Author        *Author                `protobuf:"bytes,6,opt,name=author,proto3" json:"author,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Comment) Reset() {
+	*x = Comment{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Comment) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Comment) ProtoMessage() {}
+
+func (x *Comment) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Comment.ProtoReflect.Descriptor instead.
+func (*Comment) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *Comment) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Comment) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *Comment) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
+func (x *Comment) GetBody() string {
+	if x != nil {
+		return x.Body
+	}
+	return ""
+}
+
+func (x *Comment) GetArticleId() int32 {
+	if x != nil {
+		return x.ArticleId
+	}
+	return 0
+}
+
+func (x *Comment) GetAuthor() *Author {
+	if x != nil {
+		return x.Author
+	}
+	return nil
+}
+
+type CommentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CommentRequest) Reset() {
+	*x = CommentRequest{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CommentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CommentRequest) ProtoMessage() {}
+
+func (x *CommentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CommentRequest.ProtoReflect.Descriptor instead.
+func (*CommentRequest) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *CommentRequest) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type CommentReply struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Comment       *Comment               `protobuf:"bytes,1,opt,name=comment,proto3" json:"comment,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CommentReply) Reset() {
+	*x = CommentReply{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CommentReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CommentReply) ProtoMessage() {}
+
+func (x *CommentReply) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CommentReply.ProtoReflect.Descriptor instead.
+func (*CommentReply) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *CommentReply) GetComment() *Comment {
+	if x != nil {
+		return x.Comment
+	}
+	return nil
+}
+
+type CommentListRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ArticleId     int32                  `protobuf:"varint,1,opt,name=article_id,json=articleId,proto3" json:"article_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CommentListRequest) Reset() {
+	*x = CommentListRequest{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CommentListRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CommentListRequest) ProtoMessage() {}
+
+func (x *CommentListRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CommentListRequest.ProtoReflect.Descriptor instead.
+func (*CommentListRequest) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *CommentListRequest) GetArticleId() int32 {
+	if x != nil {
+		return x.ArticleId
+	}
+	return 0
+}
+
+type CommentListReply struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Comments      []*Comment             `protobuf:"bytes,1,rep,name=comments,proto3" json:"comments,omitempty"`
+	Total         int32                  `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CommentListReply) Reset() {
+	*x = CommentListReply{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CommentListReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CommentListReply) ProtoMessage() {}
+
+func (x *CommentListReply) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CommentListReply.ProtoReflect.Descriptor instead.
+func (*CommentListReply) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *CommentListReply) GetComments() []*Comment {
+	if x != nil {
+		return x.Comments
+	}
+	return nil
+}
+
+func (x *CommentListReply) GetTotal() int32 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
+type RegisterReply_User struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterReply_User) Reset() {
+	*x = RegisterReply_User{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterReply_User) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterReply_User) ProtoMessage() {}
+
+func (x *RegisterReply_User) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterReply_User.ProtoReflect.Descriptor instead.
+func (*RegisterReply_User) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{5, 0}
+}
+
+func (x *RegisterReply_User) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
+}
+
+type UserReply_Profile struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	Username      string                 `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
+	Token         string                 `protobuf:"bytes,3,opt,name=token,proto3" json:"token,omitempty"`
+	Bio           string                 `protobuf:"bytes,4,opt,name=bio,proto3" json:"bio,omitempty"`
+	Image         string                 `protobuf:"bytes,5,opt,name=image,proto3" json:"image,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UserReply_Profile) Reset() {
+	*x = UserReply_Profile{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserReply_Profile) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserReply_Profile) ProtoMessage() {}
+
+func (x *UserReply_Profile) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserReply_Profile.ProtoReflect.Descriptor instead.
+func (*UserReply_Profile) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{6, 0}
+}
+
+func (x *UserReply_Profile) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *UserReply_Profile) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *UserReply_Profile) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
+}
+
+func (x *UserReply_Profile) GetBio() string {
+	if x != nil {
+		return x.Bio
+	}
+	return ""
+}
+
+func (x *UserReply_Profile) GetImage() string {
+	if x != nil {
+		return x.Image
+	}
+	return ""
+}
+
+type ProfileReply_Profile struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Username      string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
+	Bio           string                 `protobuf:"bytes,2,opt,name=bio,proto3" json:"bio,omitempty"`
+	Image         string                 `protobuf:"bytes,3,opt,name=image,proto3" json:"image,omitempty"`
+	Following     bool                   `protobuf:"varint,4,opt,name=following,proto3" json:"following,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProfileReply_Profile) Reset() {
+	*x = ProfileReply_Profile{}
+	mi := &file_realworld_v1_realworld_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProfileReply_Profile) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProfileReply_Profile) ProtoMessage() {}
+
+func (x *ProfileReply_Profile) ProtoReflect() protoreflect.Message {
+	mi := &file_realworld_v1_realworld_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProfileReply_Profile.ProtoReflect.Descriptor instead.
+func (*ProfileReply_Profile) Descriptor() ([]byte, []int) {
+	return file_realworld_v1_realworld_proto_rawDescGZIP(), []int{7, 0}
+}
+
+func (x *ProfileReply_Profile) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *ProfileReply_Profile) GetBio() string {
+	if x != nil {
+		return x.Bio
+	}
+	return ""
+}
+
+func (x *ProfileReply_Profile) GetImage() string {
+	if x != nil {
+		return x.Image
+	}
+	return ""
+}
+
+func (x *ProfileReply_Profile) GetFollowing() bool {
+	if x != nil {
+		return x.Following
+	}
+	return false
 }
 
 var File_realworld_v1_realworld_proto protoreflect.FileDescriptor
 
 const file_realworld_v1_realworld_proto_rawDesc = "" +
 	"\n" +
-	"\x1crealworld/v1/realworld.proto\x12\frealworld.v1\x1a\x1cgoogle/api/annotations.proto\"\"\n" +
-	"\fHelloRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\"&\n" +
+	"\x1crealworld/v1/realworld.proto\x12\frealworld.v1\x1a\x1cgoogle/api/annotations.proto\"8\n" +
+	"\x04User\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"6\n" +
+	"\fLoginRequest\x12&\n" +
+	"\x04user\x18\x01 \x01(\v2\x12.realworld.v1.UserR\x04user\"\"\n" +
 	"\n" +
-	"HelloReply\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage2i\n" +
-	"\tRealworld\x12\\\n" +
-	"\bSayHello\x12\x1a.realworld.v1.HelloRequest\x1a\x18.realworld.v1.HelloReply\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/helloworld/{name}B&Z$kratos-realworld/api/realworld/v1;v1b\x06proto3"
+	"LoginReply\x12\x14\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\"\\\n" +
+	"\fUserRegister\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x1a\n" +
+	"\busername\x18\x03 \x01(\tR\busername\"A\n" +
+	"\x0fRegisterRequest\x12.\n" +
+	"\x04user\x18\x01 \x01(\v2\x1a.realworld.v1.UserRegisterR\x04user\"c\n" +
+	"\rRegisterReply\x124\n" +
+	"\x04user\x18\x01 \x01(\v2 .realworld.v1.RegisterReply.UserR\x04user\x1a\x1c\n" +
+	"\x04User\x12\x14\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\"\xbb\x01\n" +
+	"\tUserReply\x123\n" +
+	"\x04user\x18\x01 \x01(\v2\x1f.realworld.v1.UserReply.ProfileR\x04user\x1ay\n" +
+	"\aProfile\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
+	"\busername\x18\x02 \x01(\tR\busername\x12\x14\n" +
+	"\x05token\x18\x03 \x01(\tR\x05token\x12\x10\n" +
+	"\x03bio\x18\x04 \x01(\tR\x03bio\x12\x14\n" +
+	"\x05image\x18\x05 \x01(\tR\x05image\"\xb9\x01\n" +
+	"\fProfileReply\x12<\n" +
+	"\aprofile\x18\x01 \x01(\v2\".realworld.v1.ProfileReply.ProfileR\aprofile\x1ak\n" +
+	"\aProfile\x12\x1a\n" +
+	"\busername\x18\x01 \x01(\tR\busername\x12\x10\n" +
+	"\x03bio\x18\x02 \x01(\tR\x03bio\x12\x14\n" +
+	"\x05image\x18\x03 \x01(\tR\x05image\x12\x1c\n" +
+	"\tfollowing\x18\x04 \x01(\bR\tfollowing\",\n" +
+	"\x0eProfileRequest\x12\x1a\n" +
+	"\busername\x18\x01 \x01(\tR\busername\"j\n" +
+	"\x06Author\x12\x1a\n" +
+	"\busername\x18\x01 \x01(\tR\busername\x12\x10\n" +
+	"\x03bio\x18\x02 \x01(\tR\x03bio\x12\x14\n" +
+	"\x05image\x18\x03 \x01(\tR\x05image\x12\x1c\n" +
+	"\tfollowing\x18\x04 \x01(\bR\tfollowing\")\n" +
+	"\x03Tag\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"K\n" +
+	"\fTagListReply\x12%\n" +
+	"\x04tags\x18\x01 \x03(\v2\x11.realworld.v1.TagR\x04tags\x12\x14\n" +
+	"\x05total\x18\x02 \x01(\x05R\x05total\"\x1c\n" +
+	"\n" +
+	"TagRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\"/\n" +
+	"\bTagReply\x12#\n" +
+	"\x03tag\x18\x01 \x01(\v2\x11.realworld.v1.TagR\x03tag\"\xd1\x02\n" +
+	"\aArticle\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
+	"\x04slug\x18\x02 \x01(\tR\x04slug\x12\x14\n" +
+	"\x05title\x18\x03 \x01(\tR\x05title\x12 \n" +
+	"\vdescription\x18\x04 \x01(\tR\vdescription\x12\x12\n" +
+	"\x04body\x18\x05 \x01(\tR\x04body\x12#\n" +
+	"\x03tag\x18\x06 \x03(\v2\x11.realworld.v1.TagR\x03tag\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\a \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\b \x01(\tR\tupdatedAt\x12\x1c\n" +
+	"\tfavorited\x18\t \x01(\bR\tfavorited\x12'\n" +
+	"\x0ffavorites_count\x18\n" +
+	" \x01(\rR\x0efavoritesCount\x12,\n" +
+	"\x06author\x18\v \x01(\v2\x14.realworld.v1.AuthorR\x06author\"$\n" +
+	"\x0eArticleRequest\x12\x12\n" +
+	"\x04slug\x18\x01 \x01(\tR\x04slug\"?\n" +
+	"\fArticleReply\x12/\n" +
+	"\aarticle\x18\x01 \x01(\v2\x15.realworld.v1.ArticleR\aarticle\"[\n" +
+	"\x10ArticleListReply\x121\n" +
+	"\barticles\x18\x01 \x03(\v2\x15.realworld.v1.ArticleR\barticles\x12\x14\n" +
+	"\x05total\x18\x02 \x01(\x05R\x05total\"\xb8\x01\n" +
+	"\aComment\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x02 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\x03 \x01(\tR\tupdatedAt\x12\x12\n" +
+	"\x04body\x18\x04 \x01(\tR\x04body\x12\x1d\n" +
+	"\n" +
+	"article_id\x18\x05 \x01(\x05R\tarticleId\x12,\n" +
+	"\x06author\x18\x06 \x01(\v2\x14.realworld.v1.AuthorR\x06author\" \n" +
+	"\x0eCommentRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\"?\n" +
+	"\fCommentReply\x12/\n" +
+	"\acomment\x18\x01 \x01(\v2\x15.realworld.v1.CommentR\acomment\"3\n" +
+	"\x12CommentListRequest\x12\x1d\n" +
+	"\n" +
+	"article_id\x18\x01 \x01(\x05R\tarticleId\"[\n" +
+	"\x10CommentListReply\x121\n" +
+	"\bcomments\x18\x01 \x03(\v2\x15.realworld.v1.CommentR\bcomments\x12\x14\n" +
+	"\x05total\x18\x02 \x01(\x05R\x05total2\xa9\r\n" +
+	"\tRealworld\x12Z\n" +
+	"\x05Login\x12\x1a.realworld.v1.LoginRequest\x1a\x18.realworld.v1.LoginReply\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/api/users/login\x12]\n" +
+	"\bRegister\x12\x1d.realworld.v1.RegisterRequest\x1a\x1b.realworld.v1.RegisterReply\"\x15\x82\xd3\xe4\x93\x02\x0f:\x01*\"\n" +
+	"/api/users\x12P\n" +
+	"\x0eGetCurrentUser\x12\x12.realworld.v1.User\x1a\x17.realworld.v1.UserReply\"\x11\x82\xd3\xe4\x93\x02\v\x12\t/api/user\x12b\n" +
+	"\n" +
+	"UpdateUser\x12\x1a.realworld.v1.UserRegister\x1a\x17.realworld.v1.UserReply\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\x1a\x14/api/user/{username}\x12h\n" +
+	"\n" +
+	"GetProfile\x12\x1c.realworld.v1.ProfileRequest\x1a\x1a.realworld.v1.ProfileReply\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/api/profiles/{username}\x12g\n" +
+	"\n" +
+	"FollowUser\x12\x1c.realworld.v1.ProfileRequest\x1a\x1a.realworld.v1.ProfileReply\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/api/profiles/follow\x12q\n" +
+	"\fUnfollowUser\x12\x1c.realworld.v1.ProfileRequest\x1a\x1a.realworld.v1.ProfileReply\"'\x82\xd3\xe4\x93\x02!*\x1f/api/profiles/{username}/follow\x12S\n" +
+	"\aGetTags\x12\x18.realworld.v1.TagRequest\x1a\x16.realworld.v1.TagReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/api/tags/{id}\x12V\n" +
+	"\vGetTagsList\x12\x18.realworld.v1.TagRequest\x1a\x1a.realworld.v1.TagListReply\"\x11\x82\xd3\xe4\x93\x02\v\x12\t/api/tags\x12\\\n" +
+	"\rCreateArticle\x12\x15.realworld.v1.Article\x1a\x1a.realworld.v1.ArticleReply\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\"\r/api/articles\x12d\n" +
+	"\n" +
+	"GetArticle\x12\x1c.realworld.v1.ArticleRequest\x1a\x1a.realworld.v1.ArticleReply\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/api/articles/{slug}\x12b\n" +
+	"\vGetArticles\x12\x1c.realworld.v1.ArticleRequest\x1a\x1e.realworld.v1.ArticleListReply\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/api/articles\x12c\n" +
+	"\rUpdateArticle\x12\x15.realworld.v1.Article\x1a\x1a.realworld.v1.ArticleReply\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\x1a\x14/api/articles/{slug}\x12g\n" +
+	"\rDeleteArticle\x12\x1c.realworld.v1.ArticleRequest\x1a\x1a.realworld.v1.ArticleReply\"\x1c\x82\xd3\xe4\x93\x02\x16*\x14/api/articles/{slug}\x12f\n" +
+	"\n" +
+	"AddComment\x12\x15.realworld.v1.Comment\x1a\x1a.realworld.v1.CommentReply\"%\x82\xd3\xe4\x93\x02\x1f:\x01*\"\x1a/api/{article_id}/comments\x12s\n" +
+	"\vGetComments\x12 .realworld.v1.CommentListRequest\x1a\x1e.realworld.v1.CommentListReply\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/api/{article_id}/comments\x12e\n" +
+	"\rDeleteComment\x12\x1c.realworld.v1.CommentRequest\x1a\x1a.realworld.v1.CommentReply\"\x1a\x82\xd3\xe4\x93\x02\x14*\x12/api/comments/{id}B&Z$kratos-realworld/api/realworld/v1;v1b\x06proto3"
 
 var (
 	file_realworld_v1_realworld_proto_rawDescOnce sync.Once
@@ -137,19 +1560,89 @@ func file_realworld_v1_realworld_proto_rawDescGZIP() []byte {
 	return file_realworld_v1_realworld_proto_rawDescData
 }
 
-var file_realworld_v1_realworld_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_realworld_v1_realworld_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_realworld_v1_realworld_proto_goTypes = []any{
-	(*HelloRequest)(nil), // 0: realworld.v1.HelloRequest
-	(*HelloReply)(nil),   // 1: realworld.v1.HelloReply
+	(*User)(nil),                 // 0: realworld.v1.User
+	(*LoginRequest)(nil),         // 1: realworld.v1.LoginRequest
+	(*LoginReply)(nil),           // 2: realworld.v1.LoginReply
+	(*UserRegister)(nil),         // 3: realworld.v1.UserRegister
+	(*RegisterRequest)(nil),      // 4: realworld.v1.RegisterRequest
+	(*RegisterReply)(nil),        // 5: realworld.v1.RegisterReply
+	(*UserReply)(nil),            // 6: realworld.v1.UserReply
+	(*ProfileReply)(nil),         // 7: realworld.v1.ProfileReply
+	(*ProfileRequest)(nil),       // 8: realworld.v1.ProfileRequest
+	(*Author)(nil),               // 9: realworld.v1.Author
+	(*Tag)(nil),                  // 10: realworld.v1.Tag
+	(*TagListReply)(nil),         // 11: realworld.v1.TagListReply
+	(*TagRequest)(nil),           // 12: realworld.v1.TagRequest
+	(*TagReply)(nil),             // 13: realworld.v1.TagReply
+	(*Article)(nil),              // 14: realworld.v1.Article
+	(*ArticleRequest)(nil),       // 15: realworld.v1.ArticleRequest
+	(*ArticleReply)(nil),         // 16: realworld.v1.ArticleReply
+	(*ArticleListReply)(nil),     // 17: realworld.v1.ArticleListReply
+	(*Comment)(nil),              // 18: realworld.v1.Comment
+	(*CommentRequest)(nil),       // 19: realworld.v1.CommentRequest
+	(*CommentReply)(nil),         // 20: realworld.v1.CommentReply
+	(*CommentListRequest)(nil),   // 21: realworld.v1.CommentListRequest
+	(*CommentListReply)(nil),     // 22: realworld.v1.CommentListReply
+	(*RegisterReply_User)(nil),   // 23: realworld.v1.RegisterReply.User
+	(*UserReply_Profile)(nil),    // 24: realworld.v1.UserReply.Profile
+	(*ProfileReply_Profile)(nil), // 25: realworld.v1.ProfileReply.Profile
 }
 var file_realworld_v1_realworld_proto_depIdxs = []int32{
-	0, // 0: realworld.v1.Realworld.SayHello:input_type -> realworld.v1.HelloRequest
-	1, // 1: realworld.v1.Realworld.SayHello:output_type -> realworld.v1.HelloReply
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: realworld.v1.LoginRequest.user:type_name -> realworld.v1.User
+	3,  // 1: realworld.v1.RegisterRequest.user:type_name -> realworld.v1.UserRegister
+	23, // 2: realworld.v1.RegisterReply.user:type_name -> realworld.v1.RegisterReply.User
+	24, // 3: realworld.v1.UserReply.user:type_name -> realworld.v1.UserReply.Profile
+	25, // 4: realworld.v1.ProfileReply.profile:type_name -> realworld.v1.ProfileReply.Profile
+	10, // 5: realworld.v1.TagListReply.tags:type_name -> realworld.v1.Tag
+	10, // 6: realworld.v1.TagReply.tag:type_name -> realworld.v1.Tag
+	10, // 7: realworld.v1.Article.tag:type_name -> realworld.v1.Tag
+	9,  // 8: realworld.v1.Article.author:type_name -> realworld.v1.Author
+	14, // 9: realworld.v1.ArticleReply.article:type_name -> realworld.v1.Article
+	14, // 10: realworld.v1.ArticleListReply.articles:type_name -> realworld.v1.Article
+	9,  // 11: realworld.v1.Comment.author:type_name -> realworld.v1.Author
+	18, // 12: realworld.v1.CommentReply.comment:type_name -> realworld.v1.Comment
+	18, // 13: realworld.v1.CommentListReply.comments:type_name -> realworld.v1.Comment
+	1,  // 14: realworld.v1.Realworld.Login:input_type -> realworld.v1.LoginRequest
+	4,  // 15: realworld.v1.Realworld.Register:input_type -> realworld.v1.RegisterRequest
+	0,  // 16: realworld.v1.Realworld.GetCurrentUser:input_type -> realworld.v1.User
+	3,  // 17: realworld.v1.Realworld.UpdateUser:input_type -> realworld.v1.UserRegister
+	8,  // 18: realworld.v1.Realworld.GetProfile:input_type -> realworld.v1.ProfileRequest
+	8,  // 19: realworld.v1.Realworld.FollowUser:input_type -> realworld.v1.ProfileRequest
+	8,  // 20: realworld.v1.Realworld.UnfollowUser:input_type -> realworld.v1.ProfileRequest
+	12, // 21: realworld.v1.Realworld.GetTags:input_type -> realworld.v1.TagRequest
+	12, // 22: realworld.v1.Realworld.GetTagsList:input_type -> realworld.v1.TagRequest
+	14, // 23: realworld.v1.Realworld.CreateArticle:input_type -> realworld.v1.Article
+	15, // 24: realworld.v1.Realworld.GetArticle:input_type -> realworld.v1.ArticleRequest
+	15, // 25: realworld.v1.Realworld.GetArticles:input_type -> realworld.v1.ArticleRequest
+	14, // 26: realworld.v1.Realworld.UpdateArticle:input_type -> realworld.v1.Article
+	15, // 27: realworld.v1.Realworld.DeleteArticle:input_type -> realworld.v1.ArticleRequest
+	18, // 28: realworld.v1.Realworld.AddComment:input_type -> realworld.v1.Comment
+	21, // 29: realworld.v1.Realworld.GetComments:input_type -> realworld.v1.CommentListRequest
+	19, // 30: realworld.v1.Realworld.DeleteComment:input_type -> realworld.v1.CommentRequest
+	2,  // 31: realworld.v1.Realworld.Login:output_type -> realworld.v1.LoginReply
+	5,  // 32: realworld.v1.Realworld.Register:output_type -> realworld.v1.RegisterReply
+	6,  // 33: realworld.v1.Realworld.GetCurrentUser:output_type -> realworld.v1.UserReply
+	6,  // 34: realworld.v1.Realworld.UpdateUser:output_type -> realworld.v1.UserReply
+	7,  // 35: realworld.v1.Realworld.GetProfile:output_type -> realworld.v1.ProfileReply
+	7,  // 36: realworld.v1.Realworld.FollowUser:output_type -> realworld.v1.ProfileReply
+	7,  // 37: realworld.v1.Realworld.UnfollowUser:output_type -> realworld.v1.ProfileReply
+	13, // 38: realworld.v1.Realworld.GetTags:output_type -> realworld.v1.TagReply
+	11, // 39: realworld.v1.Realworld.GetTagsList:output_type -> realworld.v1.TagListReply
+	16, // 40: realworld.v1.Realworld.CreateArticle:output_type -> realworld.v1.ArticleReply
+	16, // 41: realworld.v1.Realworld.GetArticle:output_type -> realworld.v1.ArticleReply
+	17, // 42: realworld.v1.Realworld.GetArticles:output_type -> realworld.v1.ArticleListReply
+	16, // 43: realworld.v1.Realworld.UpdateArticle:output_type -> realworld.v1.ArticleReply
+	16, // 44: realworld.v1.Realworld.DeleteArticle:output_type -> realworld.v1.ArticleReply
+	20, // 45: realworld.v1.Realworld.AddComment:output_type -> realworld.v1.CommentReply
+	22, // 46: realworld.v1.Realworld.GetComments:output_type -> realworld.v1.CommentListReply
+	20, // 47: realworld.v1.Realworld.DeleteComment:output_type -> realworld.v1.CommentReply
+	31, // [31:48] is the sub-list for method output_type
+	14, // [14:31] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_realworld_v1_realworld_proto_init() }
@@ -163,7 +1656,7 @@ func file_realworld_v1_realworld_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_realworld_v1_realworld_proto_rawDesc), len(file_realworld_v1_realworld_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   26,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
