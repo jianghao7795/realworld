@@ -1,0 +1,15 @@
+server:
+  http:
+    addr: 0.0.0.0:8500
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:9500
+    timeout: 1s
+data:
+  database:
+    driver: mysql
+    source: root:123456@tcp(192.168.56.162:3306)/realworld?charset=utf8&collation=utf8_general_ci&parseTime=True&loc=Local
+  redis:
+    addr: 192.168.56.162:6379
+    read_timeout: 0.2s
+    write_timeout: 0.2s
