@@ -21,7 +21,11 @@ func NewRealworldRepo(data *Data, logger log.Logger) biz.RealworldRepo {
 	}
 }
 
-func (r *realworldRepo) Save(ctx context.Context, g *biz.Realworld) (*biz.Realworld, error) {
+func (r *realworldRepo) Login(ctx context.Context, g *biz.Realworld) (*biz.Realworld, error) {
+	err := r.data.db.Create(g).Error
+	if err != nil {
+		return nil, err
+	}
 	return g, nil
 }
 

@@ -1522,31 +1522,9 @@ const file_realworld_v1_realworld_proto_rawDesc = "" +
 	"article_id\x18\x01 \x01(\x05R\tarticleId\"[\n" +
 	"\x10CommentListReply\x121\n" +
 	"\bcomments\x18\x01 \x03(\v2\x15.realworld.v1.CommentR\bcomments\x12\x14\n" +
-	"\x05total\x18\x02 \x01(\x05R\x05total2\xa9\r\n" +
+	"\x05total\x18\x02 \x01(\x05R\x05total2g\n" +
 	"\tRealworld\x12Z\n" +
-	"\x05Login\x12\x1a.realworld.v1.LoginRequest\x1a\x18.realworld.v1.LoginReply\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/api/users/login\x12]\n" +
-	"\bRegister\x12\x1d.realworld.v1.RegisterRequest\x1a\x1b.realworld.v1.RegisterReply\"\x15\x82\xd3\xe4\x93\x02\x0f:\x01*\"\n" +
-	"/api/users\x12P\n" +
-	"\x0eGetCurrentUser\x12\x12.realworld.v1.User\x1a\x17.realworld.v1.UserReply\"\x11\x82\xd3\xe4\x93\x02\v\x12\t/api/user\x12b\n" +
-	"\n" +
-	"UpdateUser\x12\x1a.realworld.v1.UserRegister\x1a\x17.realworld.v1.UserReply\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\x1a\x14/api/user/{username}\x12h\n" +
-	"\n" +
-	"GetProfile\x12\x1c.realworld.v1.ProfileRequest\x1a\x1a.realworld.v1.ProfileReply\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/api/profiles/{username}\x12g\n" +
-	"\n" +
-	"FollowUser\x12\x1c.realworld.v1.ProfileRequest\x1a\x1a.realworld.v1.ProfileReply\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/api/profiles/follow\x12q\n" +
-	"\fUnfollowUser\x12\x1c.realworld.v1.ProfileRequest\x1a\x1a.realworld.v1.ProfileReply\"'\x82\xd3\xe4\x93\x02!*\x1f/api/profiles/{username}/follow\x12S\n" +
-	"\aGetTags\x12\x18.realworld.v1.TagRequest\x1a\x16.realworld.v1.TagReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/api/tags/{id}\x12V\n" +
-	"\vGetTagsList\x12\x18.realworld.v1.TagRequest\x1a\x1a.realworld.v1.TagListReply\"\x11\x82\xd3\xe4\x93\x02\v\x12\t/api/tags\x12\\\n" +
-	"\rCreateArticle\x12\x15.realworld.v1.Article\x1a\x1a.realworld.v1.ArticleReply\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\"\r/api/articles\x12d\n" +
-	"\n" +
-	"GetArticle\x12\x1c.realworld.v1.ArticleRequest\x1a\x1a.realworld.v1.ArticleReply\"\x1c\x82\xd3\xe4\x93\x02\x16\x12\x14/api/articles/{slug}\x12b\n" +
-	"\vGetArticles\x12\x1c.realworld.v1.ArticleRequest\x1a\x1e.realworld.v1.ArticleListReply\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/api/articles\x12c\n" +
-	"\rUpdateArticle\x12\x15.realworld.v1.Article\x1a\x1a.realworld.v1.ArticleReply\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\x1a\x14/api/articles/{slug}\x12g\n" +
-	"\rDeleteArticle\x12\x1c.realworld.v1.ArticleRequest\x1a\x1a.realworld.v1.ArticleReply\"\x1c\x82\xd3\xe4\x93\x02\x16*\x14/api/articles/{slug}\x12f\n" +
-	"\n" +
-	"AddComment\x12\x15.realworld.v1.Comment\x1a\x1a.realworld.v1.CommentReply\"%\x82\xd3\xe4\x93\x02\x1f:\x01*\"\x1a/api/{article_id}/comments\x12s\n" +
-	"\vGetComments\x12 .realworld.v1.CommentListRequest\x1a\x1e.realworld.v1.CommentListReply\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/api/{article_id}/comments\x12e\n" +
-	"\rDeleteComment\x12\x1c.realworld.v1.CommentRequest\x1a\x1a.realworld.v1.CommentReply\"\x1a\x82\xd3\xe4\x93\x02\x14*\x12/api/comments/{id}B&Z$kratos-realworld/api/realworld/v1;v1b\x06proto3"
+	"\x05Login\x12\x1a.realworld.v1.LoginRequest\x1a\x18.realworld.v1.LoginReply\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/api/users/loginB&Z$kratos-realworld/api/realworld/v1;v1b\x06proto3"
 
 var (
 	file_realworld_v1_realworld_proto_rawDescOnce sync.Once
@@ -1605,41 +1583,9 @@ var file_realworld_v1_realworld_proto_depIdxs = []int32{
 	18, // 12: realworld.v1.CommentReply.comment:type_name -> realworld.v1.Comment
 	18, // 13: realworld.v1.CommentListReply.comments:type_name -> realworld.v1.Comment
 	1,  // 14: realworld.v1.Realworld.Login:input_type -> realworld.v1.LoginRequest
-	4,  // 15: realworld.v1.Realworld.Register:input_type -> realworld.v1.RegisterRequest
-	0,  // 16: realworld.v1.Realworld.GetCurrentUser:input_type -> realworld.v1.User
-	3,  // 17: realworld.v1.Realworld.UpdateUser:input_type -> realworld.v1.UserRegister
-	8,  // 18: realworld.v1.Realworld.GetProfile:input_type -> realworld.v1.ProfileRequest
-	8,  // 19: realworld.v1.Realworld.FollowUser:input_type -> realworld.v1.ProfileRequest
-	8,  // 20: realworld.v1.Realworld.UnfollowUser:input_type -> realworld.v1.ProfileRequest
-	12, // 21: realworld.v1.Realworld.GetTags:input_type -> realworld.v1.TagRequest
-	12, // 22: realworld.v1.Realworld.GetTagsList:input_type -> realworld.v1.TagRequest
-	14, // 23: realworld.v1.Realworld.CreateArticle:input_type -> realworld.v1.Article
-	15, // 24: realworld.v1.Realworld.GetArticle:input_type -> realworld.v1.ArticleRequest
-	15, // 25: realworld.v1.Realworld.GetArticles:input_type -> realworld.v1.ArticleRequest
-	14, // 26: realworld.v1.Realworld.UpdateArticle:input_type -> realworld.v1.Article
-	15, // 27: realworld.v1.Realworld.DeleteArticle:input_type -> realworld.v1.ArticleRequest
-	18, // 28: realworld.v1.Realworld.AddComment:input_type -> realworld.v1.Comment
-	21, // 29: realworld.v1.Realworld.GetComments:input_type -> realworld.v1.CommentListRequest
-	19, // 30: realworld.v1.Realworld.DeleteComment:input_type -> realworld.v1.CommentRequest
-	2,  // 31: realworld.v1.Realworld.Login:output_type -> realworld.v1.LoginReply
-	5,  // 32: realworld.v1.Realworld.Register:output_type -> realworld.v1.RegisterReply
-	6,  // 33: realworld.v1.Realworld.GetCurrentUser:output_type -> realworld.v1.UserReply
-	6,  // 34: realworld.v1.Realworld.UpdateUser:output_type -> realworld.v1.UserReply
-	7,  // 35: realworld.v1.Realworld.GetProfile:output_type -> realworld.v1.ProfileReply
-	7,  // 36: realworld.v1.Realworld.FollowUser:output_type -> realworld.v1.ProfileReply
-	7,  // 37: realworld.v1.Realworld.UnfollowUser:output_type -> realworld.v1.ProfileReply
-	13, // 38: realworld.v1.Realworld.GetTags:output_type -> realworld.v1.TagReply
-	11, // 39: realworld.v1.Realworld.GetTagsList:output_type -> realworld.v1.TagListReply
-	16, // 40: realworld.v1.Realworld.CreateArticle:output_type -> realworld.v1.ArticleReply
-	16, // 41: realworld.v1.Realworld.GetArticle:output_type -> realworld.v1.ArticleReply
-	17, // 42: realworld.v1.Realworld.GetArticles:output_type -> realworld.v1.ArticleListReply
-	16, // 43: realworld.v1.Realworld.UpdateArticle:output_type -> realworld.v1.ArticleReply
-	16, // 44: realworld.v1.Realworld.DeleteArticle:output_type -> realworld.v1.ArticleReply
-	20, // 45: realworld.v1.Realworld.AddComment:output_type -> realworld.v1.CommentReply
-	22, // 46: realworld.v1.Realworld.GetComments:output_type -> realworld.v1.CommentListReply
-	20, // 47: realworld.v1.Realworld.DeleteComment:output_type -> realworld.v1.CommentReply
-	31, // [31:48] is the sub-list for method output_type
-	14, // [14:31] is the sub-list for method input_type
+	2,  // 15: realworld.v1.Realworld.Login:output_type -> realworld.v1.LoginReply
+	15, // [15:16] is the sub-list for method output_type
+	14, // [14:15] is the sub-list for method input_type
 	14, // [14:14] is the sub-list for extension type_name
 	14, // [14:14] is the sub-list for extension extendee
 	0,  // [0:14] is the sub-list for field type_name

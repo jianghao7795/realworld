@@ -16,107 +16,107 @@ service Realworld {
     };
   }
 
-  rpc Register (RegisterRequest) returns (RegisterReply) {
-    option (google.api.http) = {
-      post: "/api/users"
-      body: "*"
-    };
-  }
+  // rpc Register (RegisterRequest) returns (RegisterReply) {
+  //   option (google.api.http) = {
+  //     post: "/api/users"
+  //     body: "*"
+  //   };
+  // }
 
-  rpc GetCurrentUser (User) returns (UserReply) {
-    option (google.api.http) = {
-      get: "/api/user"
-    };
-  }
+  // rpc GetCurrentUser (User) returns (UserReply) {
+  //   option (google.api.http) = {
+  //     get: "/api/user"
+  //   };
+  // }
 
-  rpc UpdateUser (UserRegister) returns (UserReply) {
-    option (google.api.http) = {
-      put: "/api/user/{username}"
-      body: "*"
-    };
-  }
+  // rpc UpdateUser (UserRegister) returns (UserReply) {
+  //   option (google.api.http) = {
+  //     put: "/api/user/{username}"
+  //     body: "*"
+  //   };
+  // }
 
-  rpc GetProfile (ProfileRequest) returns (ProfileReply) {
-    option (google.api.http) = {
-      get: "/api/profiles/{username}"
-    };
-  }
+  // rpc GetProfile (ProfileRequest) returns (ProfileReply) {
+  //   option (google.api.http) = {
+  //     get: "/api/profiles/{username}"
+  //   };
+  // }
 
-  rpc FollowUser (ProfileRequest) returns (ProfileReply) {
-    option (google.api.http) = {
-      post: "/api/profiles/follow"
-      body: "*"
-    };
-  }
+  // rpc FollowUser (ProfileRequest) returns (ProfileReply) {
+  //   option (google.api.http) = {
+  //     post: "/api/profiles/follow"
+  //     body: "*"
+  //   };
+  // }
 
-  rpc UnfollowUser (ProfileRequest) returns (ProfileReply) {
-    option (google.api.http) = {
-      delete: "/api/profiles/{username}/follow"
-    };
-  }
+  // rpc UnfollowUser (ProfileRequest) returns (ProfileReply) {
+  //   option (google.api.http) = {
+  //     delete: "/api/profiles/{username}/follow"
+  //   };
+  // }
 
-  rpc GetTags (TagRequest) returns (TagReply) {
-    option (google.api.http) = {
-      get: "/api/tags/{id}"
-    };
-  }
+  // rpc GetTags (TagRequest) returns (TagReply) {
+  //   option (google.api.http) = {
+  //     get: "/api/tags/{id}"
+  //   };
+  // }
 
-  rpc GetTagsList (TagRequest) returns (TagListReply) {
-    option (google.api.http) = {
-      get: "/api/tags"
-    };
-  }
+  // rpc GetTagsList (TagRequest) returns (TagListReply) {
+  //   option (google.api.http) = {
+  //     get: "/api/tags"
+  //   };
+  // }
 
-  rpc CreateArticle (Article) returns (ArticleReply) {
-    option (google.api.http) = {
-      post: "/api/articles"
-      body: "*"
-    };
-  }
+  // rpc CreateArticle (Article) returns (ArticleReply) {
+  //   option (google.api.http) = {
+  //     post: "/api/articles"
+  //     body: "*"
+  //   };
+  // }
 
-  rpc GetArticle (ArticleRequest) returns (ArticleReply) {
-    option (google.api.http) = {
-      get: "/api/articles/{slug}"
-    };
-  }  
+  // rpc GetArticle (ArticleRequest) returns (ArticleReply) {
+  //   option (google.api.http) = {
+  //     get: "/api/articles/{slug}"
+  //   };
+  // }  
 
-   rpc GetArticles (ArticleRequest) returns (ArticleListReply) {
-    option (google.api.http) = {
-      get: "/api/articles"
-    };
-  }
+  //  rpc GetArticles (ArticleRequest) returns (ArticleListReply) {
+  //   option (google.api.http) = {
+  //     get: "/api/articles"
+  //   };
+  // }
 
-  rpc UpdateArticle (Article) returns (ArticleReply) {
-    option (google.api.http) = {
-      put: "/api/articles/{slug}"
-      body: "*"
-    };
-  }
+  // rpc UpdateArticle (Article) returns (ArticleReply) {
+  //   option (google.api.http) = {
+  //     put: "/api/articles/{slug}"
+  //     body: "*"
+  //   };
+  // }
 
-  rpc DeleteArticle (ArticleRequest) returns (ArticleReply) {
-    option (google.api.http) = {
-      delete: "/api/articles/{slug}"
-    };
-  }
+  // rpc DeleteArticle (ArticleRequest) returns (ArticleReply) {
+  //   option (google.api.http) = {
+  //     delete: "/api/articles/{slug}"
+  //   };
+  // }
 
-  rpc AddComment (Comment) returns (CommentReply) {
-    option (google.api.http) = {
-      post: "/api/{article_id}/comments"
-      body: "*"
-    };
-  }
+  // rpc AddComment (Comment) returns (CommentReply) {
+  //   option (google.api.http) = {
+  //     post: "/api/{article_id}/comments"
+  //     body: "*"
+  //   };
+  // }
 
-  rpc GetComments (CommentListRequest) returns (CommentListReply) {
-    option (google.api.http) = {
-      get: "/api/{article_id}/comments"
-    };
-  }
+  // rpc GetComments (CommentListRequest) returns (CommentListReply) {
+  //   option (google.api.http) = {
+  //     get: "/api/{article_id}/comments"
+  //   };
+  // }
 
-  rpc DeleteComment (CommentRequest) returns (CommentReply) {
-    option (google.api.http) = {
-      delete: "/api/comments/{id}"
-    };
-  }
+  // rpc DeleteComment (CommentRequest) returns (CommentReply) {
+  //   option (google.api.http) = {
+  //     delete: "/api/comments/{id}"
+  //   };
+  // }
 }
 message User {
   string email = 1;
